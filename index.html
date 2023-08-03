@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RenovaVidas</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="icon" type="image/x-icon" href="img/safe.png">
+</head>
+
+<body>
+    <div class="message">
+        Você e algumas pessoas próximas de <span id="cidade" class="city-name"></span> foram selecionadas para
+        participar deste programa
+    </div>
+    <h2 class="headline">Descubra os <span class="highlight">Segredos</span> do Emagrecimento Saudável</h2>
+    <div class="separator"></div>
+    <div class="separator"></div>
+    <iframe frameborder="0" allowfullscreen
+        src="https://scripts.converteai.net/dbf8046a-1b81-4040-affe-f626ec19c5de/players/64bb05960373240009922216/embed.html"
+        id="ifr_64bb05960373240009922216" referrerpolicy="origin"></iframe>
+    <div class="container">
+        <a href="" class="btn-submit" id="meuBotao">QUERO FAZER PARTE DO PROJETO</a>
+    </div>
+    <div class="follow-message" style="display: none;">
+        <p>Você começou a seguir <span class="followed-user">Nome do Usuário</span>!</p>
+    </div>
+    <div class="unfollow-message" style="display: none;">
+        <p>Você parou de seguir <span class="unfollowed-user">Nome do Usuário</span>!</p>
+    </div>
+    <div class="notifications">
+        <!-- As notificações falsas aparecerão aqui -->
+    </div>
+
+    <!-- Aqui serão inseridos os comentários  -->
+    <div class="comments-container">
+        <div class="comments">
+            <div class="comment-count" id="commentCount">0 Comentários</div>
+            <div class="comment-description">
+                Deixe seu comentário abaixo!
+            </div>
+
+            <!-- Exemplo de comentário -->
+            <div class="comment">
+                <img src="img/whatsapp-image-2022-07-27-at-17.26.40.webp" alt="User 1" class="avatar">
+                <div class="comment-details">
+                    <span class="user-name">Maria Silva</span>
+                    <button class="follow-btn" onclick="toggleFollow(this)">Seguir</button>
+                    <span class="comment-text">Finalmente consegui perder 10kg! 🎉</span>
+                    <span class="timestamp">Há 2 horas</span>
+                    <button class="like-btn" onclick="toggleLike(this)">Curtir</button>
+                    <span class="like-count">46</span>
+                    <button class="reply-btn" onclick="toggleReplyForm(this)">Responder</button>
+                    <form class="reply-form">
+                        <input type="text" placeholder="Digite sua resposta..." class="reply-input">
+                        <!-- Campo para digitar a resposta -->
+                        <button class="submit-reply-btn" onclick="submitReply(event, this)">Enviar</button>
+                    </form>
+                </div>
+            </div>
+            <!-- Fim do exemplo de comentário -->
+
+            <!-- Exemplo de resposta a um comentário -->
+            <div class="comment reply">
+                <img src="img/11.jpg" alt="User" class="avatar">
+                <div class="comment-details">
+                    <span class="user-name">João Pereira</span>
+                    <button class="follow-btn" onclick="toggleFollow(this)">Seguir</button>
+                    <span class="comment-text">Oi Maria, realmente funciona? Estou com medo de investir meu tempo e não
+                        funcionar. Parabéns pelos resultados 👍🙌</span>
+                    <span class="timestamp">Há 20 minutos</span>
+                    <button class="like-btn" onclick="toggleLike(this)">Curtir</button>
+                    <span class="like-count">0</span>
+                    <button class="reply-btn" onclick="toggleReplyForm(this)">Responder</button>
+                    <form class="reply-form">
+                        <input type="text" placeholder="Digite sua resposta..." class="reply-input">
+                        <!-- Campo para digitar a resposta -->
+                        <button class="submit-reply-btn" onclick="submitReply(event, this)">Enviar</button>
+                    </form>
+                </div>
+            </div>
+            <!-- Fim do exemplo de resposta a um comentário -->
+
+            <!-- Exemplo de resposta a um comentário -->
+            <div class="comment reply">
+                <img src="img/whatsapp-image-2022-07-27-at-17.26.40.webp" alt="User" class="avatar">
+                <div class="comment-details">
+                    <span class="user-name">Maria Silva</span>
+                    <button class="follow-btn" onclick="toggleFollow(this)">Seguir</button>
+                    <span class="comment-text">Obrigada, João! Entrei no programa e só vi benefícios! Antes eu tinha
+                        problemas de autoestima e saúde, hoje já consigo usar um biquíni na praia e até mesmo usar uma
+                        roupa mais curta, sem medo dos olhares ao meu corpo. Minha saúde teve uma melhora significativa,
+                        antes eu não conseguia andar por alguns minutos que ficava cansada, quer um conselho? Vai nessa.
+                        Merecemos ser feliz 🥰</span>
+                    <span class="timestamp">Há 27 minutos</span>
+                    <button class="like-btn" onclick="toggleLike(this)">Curtir</button>
+                    <span class="like-count">0</span>
+                    <button class="reply-btn" onclick="toggleReplyForm(this)">Responder</button>
+                    <form class="reply-form">
+                        <input type="text" placeholder="Digite sua resposta..." class="reply-input">
+                        <!-- Campo para digitar a resposta -->
+                        <button class="submit-reply-btn" onclick="submitReply(event, this)">Enviar</button>
+                    </form>
+                </div>
+            </div>
+            <!-- Fim do Exemplo de resposta a um comentário -->
+
+            <!-- Exemplo de resposta a um comentário -->
+            <div class="comment reply">
+                <img src="img/11.jpg" alt="User" class="avatar">
+                <div class="comment-details">
+                    <span class="user-name">João Pereira</span>
+                    <button class="follow-btn" onclick="toggleFollow(this)">Seguir</button>
+                    <span class="comment-text">Isso é ótimo, obrigado pela mensagem! Estava buscando essa inspiração
+                        para melhorar de vez minha vida.</span>
+                    <span class="timestamp">Há 32 minutos</span>
+                    <button class="like-btn" onclick="toggleLike(this)">Curtir</button>
+                    <span class="like-count">0</span>
+                    <button class="reply-btn" onclick="toggleReplyForm(this)">Responder</button>
+                    <form class="reply-form">
+                        <input type="text" placeholder="Digite sua resposta..." class="reply-input">
+                        <!-- Campo para digitar a resposta -->
+                        <button class="submit-reply-btn" onclick="submitReply(event, this)">Enviar</button>
+                    </form>
+                </div>
+            </div>
+            <!-- Fim do Exemplo de resposta a um comentário -->
+
+            <!-- Exemplo de comentário -->
+            <div class="comment">
+                <img src="img/16.jpg" alt="User 1" class="avatar">
+                <div class="comment-details">
+                    <span class="user-name">Camila Oliveira</span>
+                    <button class="follow-btn" onclick="toggleFollow(this)">Seguir</button>
+                    <span class="comment-text">Emagrecer mudou minha vida! Me sinto mais saudável e confiante ❤️</span>
+                    <span class="timestamp">Há 40 minutos</span>
+                    <button class="like-btn" onclick="toggleLike(this)">Curtir</button>
+                    <span class="like-count">46</span>
+                    <button class="reply-btn" onclick="toggleReplyForm(this)">Responder</button>
+                    <form class="reply-form">
+                        <input type="text" placeholder="Digite sua resposta..." class="reply-input">
+                        <!-- Campo para digitar a resposta -->
+                        <button class="submit-reply-btn" onclick="submitReply(event, this)">Enviar</button>
+                    </form>
+                </div>
+            </div>
+            <!-- Fim do exemplo de comentário -->
+
+            <!-- Exemplo de comentário -->
+            <div class="comment">
+                <img src="img/2-1.jpg" alt="User 1" class="avatar">
+                <div class="comment-details">
+                    <span class="user-name">Rafael Mendes</span>
+                    <button class="follow-btn" onclick="toggleFollow(this)">Seguir</button>
+                    <span class="comment-text">Depois de anos tentando, finalmente alcancei meu peso ideal. Nunca
+                        desistam!</span>
+                    <span class="timestamp">Há 50 minutos</span>
+                    <button class="like-btn" onclick="toggleLike(this)">Curtir</button>
+                    <span class="like-count">43</span>
+                    <button class="reply-btn" onclick="toggleReplyForm(this)">Responder</button>
+                    <form class="reply-form">
+                        <input type="text" placeholder="Digite sua resposta..." class="reply-input">
+                        <!-- Campo para digitar a resposta -->
+                        <button class="submit-reply-btn" onclick="submitReply(event, this)">Enviar</button>
+                    </form>
+                </div>
+            </div>
+            <!-- Fim do exemplo de comentário -->
+
+            <!-- Exemplo de comentário -->
+            <div class="comment">
+                <img src="img/1640219974506903-0.jpg" alt="User 1" class="avatar">
+                <div class="comment-details">
+                    <span class="user-name">Mariana Lima</span>
+                    <button class="follow-btn" onclick="toggleFollow(this)">Seguir</button>
+                    <span class="comment-text">Eu era a gordinha zoada, hoje sou a gostosa desejada!</span>
+                    <span class="timestamp">Há 40 minutos</span>
+                    <button class="like-btn" onclick="toggleLike(this)">Curtir</button>
+                    <span class="like-count">46</span>
+                    <button class="reply-btn" onclick="toggleReplyForm(this)">Responder</button>
+                    <form class="reply-form">
+                        <input type="text" placeholder="Digite sua resposta..." class="reply-input">
+                        <!-- Campo para digitar a resposta -->
+                        <button class="submit-reply-btn" onclick="submitReply(event, this)">Enviar</button>
+                    </form>
+                </div>
+            </div>
+            <!-- Fim do exemplo de comentário -->
+
+            <!-- Exemplo de resposta a um comentário -->
+            <div class="comment reply">
+                <img src="img/20.jpg" alt="User" class="avatar">
+                <div class="comment-details">
+                    <span class="user-name">Carla Mendes</span>
+                    <button class="follow-btn" onclick="toggleFollow(this)">Seguir</button>
+                    <span class="comment-text">hahs esse é o meu objetivo!!!.</span>
+                    <span class="timestamp">Há 12 minutos</span>
+                    <button class="like-btn" onclick="toggleLike(this)">Curtir</button>
+                    <span class="like-count">0</span>
+                    <button class="reply-btn" onclick="toggleReplyForm(this)">Responder</button>
+                    <form class="reply-form">
+                        <input type="text" placeholder="Digite sua resposta..." class="reply-input">
+                        <!-- Campo para digitar a resposta -->
+                        <button class="submit-reply-btn" onclick="submitReply(event, this)">Enviar</button>
+                    </form>
+                </div>
+            </div>
+            <!-- Fim do Exemplo de resposta a um comentário -->
+
+            <!-- Exemplo de resposta a um comentário -->
+            <div class="comment reply">
+                <img src="img/3.jpg" alt="User" class="avatar">
+                <div class="comment-details">
+                    <span class="user-name">Gabriel Silva</span>
+                    <button class="follow-btn" onclick="toggleFollow(this)">Seguir</button>
+                    <span class="comment-text">realmente mt gata rs</span>
+                    <span class="timestamp">Há 9 minutos</span>
+                    <button class="like-btn" onclick="toggleLike(this)">Curtir</button>
+                    <span class="like-count">0</span>
+                    <button class="reply-btn" onclick="toggleReplyForm(this)">Responder</button>
+                    <form class="reply-form">
+                        <input type="text" placeholder="Digite sua resposta..." class="reply-input">
+                        <!-- Campo para digitar a resposta -->
+                        <button class="submit-reply-btn" onclick="submitReply(event, this)">Enviar</button>
+                    </form>
+                </div>
+            </div>
+            <!-- Fim do Exemplo de resposta a um comentário -->
+
+
+
+
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="footer">
+            <p class="piracy-warning">
+                <span>PIRATARIA É </span>
+                <span class="crime">CRIME</span>
+            </p>
+            <p class="piraty-text">A venda desse produto só pode ser realizada através deste site. Qualquer outro site
+                onde você encontre este programa é uma FALSIFICAÇÃO e vai contra as leis. Evite falsificações e recuse
+                conteúdos ilegais ou pirateados. NÃO adquira programas parecidos e que não são baseados em anos de
+                estudos científicos. Não nos responsabilizamos por compras realizadas em outros sites.</p>
+        </div>
+
+        <p class="copyright">
+            © 2023 Google. Todos os direitos reservados.
+        </p>
+
+
+        <p>
+            ESTE SITE NÃO É DO GOOGLE: Este site não faz parte do Google ou Google INC. Além disso, este site não é
+            endossado pelo Google de nenhuma maneira. Resultados passados não são garantias de resultados futuros. Os
+            resultados podem variar de pessoa para pessoa. Produto digital entregue via e-mail.
+        </p>
+        <p>
+            AVISO LEGAL: Os resultados referentes ao produto foram avaliados e comprovados por nossos clientes. Não
+            garantimos os resultados iguais para todos, estes variam de pessoa para pessoa dependendo de diversos
+            fatores
+            individuais. As informações fornecidas neste site destinam-se ao seu conhecimento geral e não garantimos um
+            resultado específico, todo resultado será de inteira responsabilidade do cliente. Essa página/produto não
+            tem
+            vínculo com o Google nem com o Youtube.
+        </p>
+        <p>
+            Se você tiver alguma dúvida, sinta-se à vontade para usar o link de contato e falar conosco em horário
+            comercial de Segunda a Sextas das 09h00 ás 18h00. Possui uma garantia para reembolso de 7 dias. Lemos e
+            respondemos todas as mensagens por ordem de chegada. Não há garantia de resultados, os resultados podem
+            variar de pessoa para pessoa.
+        </p>
+
+        <div class="link-container">
+            <a href="#termos-de-uso">Termos de Uso</a>
+            <a href="#politica-de-privacidade">Política de Privacidade</a>
+        </div>
+        <div class="info-message" id="infoMessage">
+            O acesso ao código-fonte está bloqueado para proteger a integridade do conteúdo.<br>
+            Você será redirecionado para a página de destino.
+        </div>
+
+    </footer>
+
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>

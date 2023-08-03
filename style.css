@@ -1,0 +1,669 @@
+@charset "UTF-8";
+
+:root {
+    --principal: #ff5252;
+    --cinzaMedio: #666666;
+    --text-primary: #E9F4FF;
+    --text-secondary: #7F92A5;
+    --text-white: transparent;
+    --gradient: linear-gradient(89.78deg, #00ec4f 0.19%, #00ff2a 99.82%);
+    --dark-blue: #030409;
+}
+
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-family: 'Exo 2', sans-serif;
+}
+
+html,
+body {
+    color: var(--text-white);
+    font-family: 'Exo 2', sans-serif;
+    overflow-x: hidden;
+    min-height: calc(100vh + 1px);
+    background: #0a1540c9;
+}
+
+body {
+    padding-right: 0 !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+span {
+    margin: 0px;
+    padding: 0px;
+}
+
+.text-gradient-green {
+    background: linear-gradient(89.78deg, #00d50b 0.19%, #04ff00 99.82%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.message {
+    background-color: #00ec4f;
+    font-weight: bold;
+    color: #000000;
+    padding: 10px;
+    text-align: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+    pointer-events: none;
+}
+
+.city-name {
+    color: #131836;
+}
+
+.headline {
+    font-size: 30px;
+    font-weight: bold;
+    color: var(--text-primary);
+    text-align: center;
+    margin-top: 40px;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    pointer-events: none;
+}
+
+/* Media query apenas em desktop */
+@media (min-width: 992px) {
+    .message {
+        font-size: 20px;
+    }
+
+    .headline {
+        font-size: 40px;
+    }
+
+    iframe {
+        height: 500px;
+    }
+
+    .btn-submit {
+        margin-top: 40px;
+    }
+}
+
+/* Media query em dispositivos móveis */
+@media (max-width: 991px) {
+    .message {
+        font-size: 14px;
+    }
+
+    .headline {
+        font-size: 26px;
+    }
+}
+
+.highlight {
+    color: #00ec4f;
+    font-weight: bold;
+}
+
+.separator {
+    height: 25px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-submit {
+    background: var(--gradient);
+    box-shadow: 0px 13px 44px 0px rgba(14, 198, 63, 0.4);
+    color: #000000;
+    border: none;
+    padding: 20px 40px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 34px;
+    cursor: pointer;
+    font-weight: bold;
+    animation: pulsar 1.5s infinite;
+    text-shadow: 0px 6px 14px rgba(0, 0, 0, 0.25);
+}
+
+/* Media query para dispositivos móveis com largura menor ou igual a 767px */
+@media (max-width: 767px) {
+    .btn-submit {
+        padding: 15px 30px;
+        font-size: 15px;
+        align-items: center;
+        margin-top: -330px;
+    }
+}
+
+@keyframes pulsar {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+        /* Faz o botão crescer */
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.btn-submit:hover {
+    --gradient: linear-gradient(89.78deg, #00c521ad 0.19%, #00d54edf 99.82%);
+}
+
+iframe {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 800px;
+    height: 450px;
+    border: none;
+    box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 767px) {
+    iframe {
+        margin-left: 10px;
+        margin-right: 10px;
+        max-width: calc(100% - 20px);
+        /* é a soma das margens esquerda e direita */
+    }
+}
+
+/* Media query para iPhone 11 Pro */
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-device-pixel-ratio: 3) {
+    iframe {
+        margin-left: 10px;
+        margin-right: 10px;
+        max-width: calc(100% - 20px);
+        /* é a soma das margens esquerda e direita */
+    }
+
+    .btn-submit {
+        padding: 15px 30px;
+        font-size: 15px;
+        align-items: center;
+        margin-top: -380px;
+    }
+}
+
+
+
+.comment-count {
+    font-weight: bold;
+    color: #000000;
+    padding: 10px;
+    text-align: center;
+}
+
+.comment-description {
+    font-size: 16px;
+    color: #000000;
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: -11px;
+}
+
+.comments {
+    max-width: 900px;
+    margin: 20px auto 0;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 15px 15px 15px 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.comment {
+    display: flex;
+    margin-bottom: 15px;
+    color: #000;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.user-name {
+    font-weight: bold;
+}
+
+.comment-text {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.timestamp {
+    font-size: 12px;
+    color: #999;
+}
+
+.comment.reply {
+    margin-left: 40px;
+    border-left: 2px solid #ccc;
+    padding-left: 10px;
+}
+
+.like-btn {
+    margin-left: 10px;
+    border: none;
+    background-color: transparent;
+    color: #4caf50;
+    cursor: pointer;
+}
+
+
+.like-btn {
+    /* Outras propriedades de estilo aqui */
+    transition: transform 0.2s ease-in-out;
+}
+
+.like-btn.liked {
+    transform: scale(1.1);
+}
+
+
+
+.like-count {
+    margin-left: 5px;
+}
+
+.reply-btn {
+    margin-left: 10px;
+    border: none;
+    background-color: transparent;
+    color: #4caf50;
+    cursor: pointer;
+}
+
+.comment.reply .reply.reply {
+    margin-left: 0;
+    /* Restaura a barrinha apenas para respostas diretas a comentários originais */
+    padding-left: 0;
+    border-left: none;
+}
+
+.comment .reply.reply {
+    /* Remove a margem e a borda para respostas subsequentes */
+    margin-left: 40px;
+    padding-left: 10px;
+    border-left: 2px solid #ccc;
+}
+
+.reply-form {
+    display: none;
+    margin-top: 10px;
+}
+
+.reply-form input {
+    width: 70%;
+    padding: 5px;
+    margin-right: 5px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.reply-form .submit-reply-btn {
+    background-color: #007eec;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.reply-form .submit-reply-btn:hover {
+    background-color: #0070d1;
+}
+
+.comment {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    color: #000;
+}
+
+.comment {
+    max-width: 100%;
+    /* Adiciona largura máxima para os comentários */
+}
+
+.comment-text,
+.reply-input {
+    word-wrap: break-word;
+    /* Força quebra de linha quando necessário */
+}
+
+
+.like-btn,
+.reply-btn {
+    background-color: transparent;
+    border: none;
+    color: #1877f2;
+    cursor: pointer;
+    font-size: 14px;
+    margin-right: 10px;
+}
+
+.like-btn:hover,
+.reply-btn:hover {
+    text-decoration: underline;
+}
+
+
+/* estilo para a classe .sending */
+.submit-reply-btn.sending {
+    background-color: #ddd;
+    cursor: not-allowed;
+    padding: 13px 13px;
+    font-size: 11px;
+
+}
+
+.submit-reply-btn.sending:hover {
+    background-color: #c3c3c3;
+    cursor: not-allowed;
+
+}
+
+
+/* Estilos do botão Seguir */
+.follow-btn {
+    background-color: transparent;
+    color: #1877f2;
+    border: 2px solid transparent;
+    padding: 8px 16px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.follow-btn:hover {
+    background-color: transparent;
+    color: #8194ad;
+    border: 2px solid transparent;
+}
+
+/* Estilo do botão Seguindo */
+.following-btn {
+    color: #8194ad;
+}
+
+.following-btn:hover {
+    background-color: transparent;
+    color: #8194ad;
+    border: 2px solid transparent;
+}
+
+
+.follow-message {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #b9d6e9;
+    color: #000000;
+    padding: 10px;
+    border-radius: 20px;
+    z-index: 9999;
+    animation: slide-up 1s, slide-down 1s 2s;
+    /* Adiciona animação de saída após 3 segundos */
+    white-space: nowrap;
+}
+
+/* Animação para a mensagem de seguir ao aparecer */
+@keyframes slide-up {
+    from {
+        transform: translateX(-50%) translateY(100%);
+    }
+
+    to {
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+/* Animação para a mensagem de seguir ao sair */
+@keyframes slide-down {
+    from {
+        transform: translateX(-50%) translateY(0);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateX(-50%) translateY(100%);
+        opacity: 0;
+    }
+}
+
+
+
+.unfollow-message {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #b9d6e9;
+    color: #000000;
+    padding: 10px;
+    border-radius: 20px;
+    z-index: 9999;
+    animation: slide-up 1s, slide-down 1s 2s;
+    /* Adiciona animação de saída após 3 segundos */
+    white-space: nowrap;
+}
+
+/* Animação para a mensagem de seguir ao aparecer */
+@keyframes slide-up {
+    from {
+        transform: translateX(-50%) translateY(100%);
+    }
+
+    to {
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+/* Animação para a mensagem de seguir ao sair */
+@keyframes slide-down {
+    from {
+        transform: translateX(-50%) translateY(0);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateX(-50%) translateY(100%);
+        opacity: 0;
+    }
+}
+
+
+
+
+/* Media query para dispositivos móveis com largura menor ou igual a 767px */
+@media (max-width: 767px) {
+    .comments {
+        margin-top: 20px;
+        /* Adiciona um espaçamento entre o botão e os comentários */
+    }
+
+    .comment,
+    .reply {
+        margin-bottom: 20px;
+        /* Adiciona espaçamento entre os comentários */
+    }
+
+    .comments-container {
+        padding: 0 10px;
+        /* Espaçamento lateral menor de 10px para dispositivos móveis */
+        margin-top: -120px;
+    }
+}
+
+.footer {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: rgb(0, 0, 0);
+    color: #c6c6c6;
+    font-size: 9px;
+    text-align: center;
+    line-height: 1.6;
+}
+
+.footer p {
+    margin-bottom: 15px;
+}
+
+.footer .copyright {
+    margin-top: 30px;
+    font-size: 11px;
+    color: #999;
+}
+
+.footer a {
+    color: #999;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    color: #999;
+}
+
+.footer .link-container a {
+    margin-right: 10px;
+    align-items: center;
+}
+
+.footer .piracy-warning {
+    letter-spacing: 5px;
+    /* Adiciona espaçamento de 3px entre as letras */
+    font-size: 16px;
+    margin-top: -60px;
+}
+
+.footer .piracy-warning span.crime {
+    color: #ff0000;
+    font-weight: bold;
+}
+
+.piraty-text {
+    font-size: 13px;
+    color: #ffffffd8;
+
+
+}
+
+
+
+/* Estilos das notificações */
+.notifications {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(0%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 9999;
+}
+
+.notification {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    animation: slide-up 1s forwards, slide-down 1s forwards 3s;
+    display: flex;
+    align-items: center;
+}
+
+.notification img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.notification-content {
+    flex: 1;
+}
+
+.notification p {
+    margin: 0;
+    white-space: nowrap;
+}
+
+/* Classe para animação de entrada */
+.show-notification {
+    opacity: 1;
+    transform: translateY(0);
+    animation-fill-mode: forwards;
+}
+
+@keyframes slide-up {
+    from {
+        transform: translateX(-50%) translateY(100%);
+    }
+
+    to {
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+@keyframes slide-down {
+    from {
+        transform: translateX(-50%) translateY(0);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateX(-50%) translateY(100%);
+        opacity: 0;
+    }
+}
+
+
+.message-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 9999;
+}
+
+.message-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+    color: #000;
+}
