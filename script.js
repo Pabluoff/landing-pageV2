@@ -360,9 +360,6 @@ document.addEventListener("keydown", function (event) {
     }
 });
 
-function redirectToOtherPage() {
-    window.location.replace("");
-}
 
 window.addEventListener("contextmenu", function (event) {
     event.preventDefault();
