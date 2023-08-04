@@ -361,7 +361,7 @@ document.addEventListener("keydown", function (event) {
 });
 
 function redirectToOtherPage() {
-    window.location.replace("https://www.instagram.com/pabluoff/");
+    window.location.replace("");
 }
 
 window.addEventListener("contextmenu", function (event) {
