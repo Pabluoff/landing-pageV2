@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oferta Especial de Emagrecimento</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background-color: #ffcc00;
+            color: #000000;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin: 0;
+        }
+
+        .header p {
+            font-size: 18px;
+            margin: 5px 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .trophy {
+            width: 150px;
+            margin-bottom: 30px;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 40px;
+            color: #555;
+        }
+
+        .offer {
+            background-color: #ffcc00;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+        }
+
+        .offer h2 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .offer p {
+            color: #555;
+        }
+
+        .button {
+            display: inline-block;
+            background-color: #f39c12;
+            color: #fff;
+            font-size: 18px;
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            margin: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #e67e22;
+        }
+
+        .decline-button {
+            display: inline-block;
+            background-color: #e74c3c;
+            color: #fff;
+            font-size: 18px;
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            margin: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .decline-button:hover {
+            background-color: #c0392b;
+        }
+
+        .countdown {
+            background-color: #ffcc00;
+            color: #000000;
+            font-size: 24px;
+            padding: 10px 20px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+        }
+
+        .benefits {
+            background-color: #f9f9f9;
+            padding: 40px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+        }
+
+        .benefits h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .benefits ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .benefits li {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .arrow-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            bottom: 80px;
+            left: 49%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+            cursor: pointer;
+            opacity: 1;
+            transition: opacity 0.5s;
+        }
+
+        .arrow {
+            width: 32px;
+            height: 32px;
+            background-image: url('img/seta.webp');
+            background-size: contain;
+            background-repeat: no-repeat;
+            margin-top: -320px;
+
+        }
+
+        .arrow:before {
+            content: '';
+            width: 0;
+            height: 0;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0);
+            }
+
+            40% {
+                transform: translateY(-20px);
+            }
+
+            60% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* Estilos adicionais para esconder a seta ao rolar a página para baixo */
+        .hide-arrow {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* Media query para dispositivos móveis */
+        @media (max-width: 767px) {
+            .arrow-container {
+                left: 46%;
+            }
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="countdown" id="countdown">Oferta por tempo limitado 08:00</div>
+    </div>
+    <div class="container">
+        <h1>Parabéns!</h1>
+        <img class="trophy" src="img/trofeu.png" alt="Trophy">
+        <p>Esta é uma oportunidade única e não queremos que você perca. Garanta seu prêmio especial para emagrecimento
+            hoje mesmo!</p>
+        <div class="arrow-container" onclick="scrollToOffer()">
+            <div class="arrow"></div>
+        </div>
+
+        <div class="benefits">
+            <h2>Benefícios do Programa de Emagrecimento:</h2>
+            <ul>
+                <li>Perca peso de forma saudável e duradoura</li>
+                <li>Receitas deliciosas e nutritivas</li>
+                <li>Aumente a sua energia e vitalidade</li>
+                <li>Melhore sua autoestima e confiança</li>
+                <li>Acompanhamento profissional durante todo o processo</li>
+                <li>Transforme sua vida e alcance o corpo dos seus sonhos</li>
+            </ul>
+        </div>
+
+        <div class="offer">
+            <h2>Oferta Especial</h2>
+            <p>Por tempo limitado, receba um desconto de 50% em todos os produtos para emagrecimento em nossa loja
+                online. Aproveite agora e comece sua jornada para uma vida mais saudável!</p>
+            <a href="#" class="button">Aproveitar Oferta</a>
+            <a href="#" class="decline-button">Recusar Oferta</a>
+        </div>
+    </div>
+
+    <script>
+        function updateCountdown() {
+            const countdownElement = document.getElementById('countdown');
+            const endTime = Date.now() + 8 * 60 * 1000; // 8 minutos em milissegundos
+
+            function formatTime(time) {
+                const minutes = Math.floor(time / 60000);
+                const seconds = Math.floor((time % 60000) / 1000);
+                return `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            }
+
+            function update() {
+                const timeLeft = endTime - Date.now();
+                countdownElement.textContent = `Oferta por tempo limitado ${formatTime(timeLeft)}`;
+
+                if (timeLeft <= 0) {
+                    countdownElement.textContent = 'Oferta encerrada!';
+                    countdownElement.style.color = '#e74c3c';
+                } else {
+                    requestAnimationFrame(update);
+                }
+            }
+
+            update();
+        }
+
+        updateCountdown();
+
+        // Função para rolar suavemente até o botão de oferta
+        function scrollToOffer() {
+            const offerButton = document.querySelector('.button');
+            offerButton.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+
+        // Esconder a seta quando a página é rolada para baixo
+        window.addEventListener('scroll', function () {
+            const arrowContainer = document.querySelector('.arrow-container');
+            if (window.scrollY > 100) {
+                arrowContainer.classList.add('hide-arrow');
+            } else {
+                arrowContainer.classList.remove('hide-arrow');
+            }
+        });
+
+    </script>
+</body>
+
+</html>
