@@ -229,7 +229,10 @@ iframe {
 .comment {
     display: flex;
     margin-bottom: 15px;
+    border-radius: 8px;
+    padding: 10px;
     color: #000;
+
 }
 
 .avatar {
@@ -275,6 +278,7 @@ iframe {
 
 .like-btn.liked {
     transform: scale(1.1);
+
 }
 
 
@@ -293,7 +297,6 @@ iframe {
 
 .comment.reply .reply.reply {
     margin-left: 0;
-    /* Restaura a barrinha apenas para respostas diretas a comentários originais */
     padding-left: 0;
     border-left: none;
 }
@@ -304,6 +307,8 @@ iframe {
     padding-left: 10px;
     border-left: 2px solid #ccc;
 }
+
+
 
 .reply-form {
     display: none;
@@ -320,14 +325,14 @@ iframe {
 }
 
 .reply-form .submit-reply-btn {
-    background-color: #007eec;
-    color: #fff;
+    background-color: #1877f2;
+    color: white;
     border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
+    padding: 6px 12px;
+    border-radius: 20px;
     font-size: 14px;
-    transition: background-color 0.3s ease;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 .reply-form .submit-reply-btn:hover {
@@ -365,7 +370,7 @@ iframe {
 
 .like-btn:hover,
 .reply-btn:hover {
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 
@@ -373,8 +378,9 @@ iframe {
 .submit-reply-btn.sending {
     background-color: #ddd;
     cursor: not-allowed;
-    padding: 13px 13px;
-    font-size: 11px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 14px;
 
 }
 
@@ -470,7 +476,6 @@ iframe {
     border-radius: 20px;
     z-index: 9999;
     animation: slide-up 1s, slide-down 1s 2s;
-    /* Adiciona animação de saída após 3 segundos */
     white-space: nowrap;
 }
 
@@ -667,3 +672,63 @@ iframe {
     text-align: center;
     color: #000;
 }
+
+
+
+.comment-input {
+    display: flex;
+    align-items: center;
+    background-color: #f2f3f5;
+    border-radius: 20px;
+    padding: 8px 12px;
+    margin-top: 20px;
+}
+
+.comment-input .avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.comment-input input {
+    flex: 1;
+    border: none;
+    padding: 8px;
+    border-radius: 20px;
+    background-color: transparent;
+    font-size: 14px;
+}
+
+.comment-input button {
+    background-color: #1877f2;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.comment-input button:hover {
+    background-color: #0e5ac1;
+}
+
+
+.submit-comment-btn.sending {
+    background-color: #ddd;
+    cursor: not-allowed;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+
+}
+
+.submit-comment-btn.sending:hover {
+    background-color: #c3c3c3;
+    cursor: not-allowed;
+
+}
+
+
