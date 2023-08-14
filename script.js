@@ -99,7 +99,7 @@ function submitReply(event, button) {
         button.classList.add('sending');
 
         // Altera o texto do botão para "Enviando..."
-        button.textContent = 'Enviando...';
+        button.textContent = 'Enviou';
 
         // Simulação de envio (1,5 segundos)
         setTimeout(() => {
@@ -197,6 +197,97 @@ function showUnfollowMessage(userName) {
     setTimeout(() => {
         unfollowMessage.style.display = 'none';
     }, 3000);
+}
+
+
+function getRandomUser() {
+    const users = ['Cristiano Fonseca', 'Roberto Paiva', 'Júlio Alberto', 'Angelo Ribeiro'];
+    return users[Math.floor(Math.random() * users.length)];
+}
+
+function getRandomAvatar() {
+    const avatars = ['img/homem', 'img/homem 2.jpg', 'img/homem 3.webp' , 'img/homem 4.jpg'];
+    return avatars[Math.floor(Math.random() * avatars.length)];
+}
+
+function getRandomComment() {
+    const comments = ['Obrigado pelo seu comentário!', 'Ótimo ponto de vista!', 'Continue participando!', 'Isso é interessante!'];
+    return comments[Math.floor(Math.random() * comments.length)];
+}
+
+
+function submitMainComment() {
+    const mainCommentInput = document.getElementById('mainCommentInput');
+    const commentText = mainCommentInput.value.trim();
+
+    if (commentText !== '') {
+        // Adiciona a classe .sending ao botão
+        const button = mainCommentInput.nextElementSibling;
+        button.classList.add('sending');
+
+        // Altera o texto do botão para "Enviando..."
+        button.textContent = 'Enviando...';
+
+        // Simulação de envio (1,5 segundos)
+        setTimeout(() => {
+            const commentsContainer = document.querySelector('.comments');
+            const firstComment = commentsContainer.querySelector('.comment');
+
+            // Cria o novo comentário do usuário
+            const userComment = createComment('Você Comentou', commentText, 'Agora', 0);
+            commentsContainer.insertBefore(userComment, firstComment);
+
+
+            // Simulação de resposta automática (1 segundo após o envio do comentário do usuário)
+            setTimeout(() => {
+                const autoReplyName = getRandomUser();
+                const autoReplyAvatar = getRandomAvatar();
+                const autoReplyText = getRandomComment();
+
+                const autoReplyComment = createComment(autoReplyName, autoReplyText, 'Agora', 0);
+                autoReplyComment.querySelector('.avatar').src = autoReplyAvatar;
+
+                const autoReplyContainer = document.createElement('div');
+                autoReplyContainer.classList.add('comment', 'reply');
+                autoReplyContainer.appendChild(autoReplyComment);
+                userComment.appendChild(autoReplyContainer);
+                
+            }, 1000); // Simulação de resposta automática após 1 segundo
+
+            // Remove a classe .sending após o envio ser concluído (1 segundo)
+            button.classList.remove('sending');
+            button.textContent = 'Publicar'; // Retorna o texto do botão para "Enviar"
+            mainCommentInput.value = '';
+        }, 1500); // Tempo total de animação (envio + atraso de 1 segundo)
+    }
+}
+
+
+// Resto do código (função createComment, etc.)
+
+function createComment(userName, commentText, timestamp, likeCount) {
+    const comment = document.createElement('div');
+    comment.classList.add('comment');
+
+    const commentContent = `
+        <img src="img/avatar.jpg" alt="User" class="avatar">
+        <div class="comment-details">
+            <span class="user-name">${userName}</span>
+            <span class="comment-text">${commentText}</span>
+            <span class="timestamp">${timestamp}</span>
+            <button class="like-btn" onclick="toggleLike(this)">Curtir</button>
+            <span class="like-count">${likeCount}</span>
+            <button class="reply-btn" onclick="toggleReplyForm(this)">Responder</button>
+            <form class="reply-form">
+                <input type="text" placeholder="Digite sua resposta..." class="reply-input">
+                <button class="submit-reply-btn" onclick="submitReply(event, this)">Enviar</button>
+            </form>
+        </div>
+    `;
+
+    comment.innerHTML = commentContent;
+
+    return comment;
 }
 
 
@@ -372,3 +463,6 @@ window.addEventListener("keydown", function (event) {
         redirectToOtherPage();
     }
 });
+
+
+
