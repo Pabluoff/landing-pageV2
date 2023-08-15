@@ -99,7 +99,7 @@ function submitReply(event, button) {
         button.classList.add('sending');
 
         // Altera o texto do botão para "Enviando..."
-        button.textContent = 'Enviou';
+        button.textContent = 'Envio';
 
         // Simulação de envio (1,5 segundos)
         setTimeout(() => {
@@ -200,22 +200,6 @@ function showUnfollowMessage(userName) {
 }
 
 
-function getRandomUser() {
-    const users = ['Cristiano Fonseca', 'Roberto Paiva', 'Júlio Alberto', 'Angelo Ribeiro'];
-    return users[Math.floor(Math.random() * users.length)];
-}
-
-function getRandomAvatar() {
-    const avatars = ['img/homem', 'img/homem 2.jpg', 'img/homem 3.webp' , 'img/homem 4.jpg'];
-    return avatars[Math.floor(Math.random() * avatars.length)];
-}
-
-function getRandomComment() {
-    const comments = ['Obrigado pelo seu comentário!', 'Ótimo ponto de vista!', 'Continue participando!', 'Isso é interessante!'];
-    return comments[Math.floor(Math.random() * comments.length)];
-}
-
-
 function submitMainComment() {
     const mainCommentInput = document.getElementById('mainCommentInput');
     const commentText = mainCommentInput.value.trim();
@@ -230,40 +214,20 @@ function submitMainComment() {
 
         // Simulação de envio (1,5 segundos)
         setTimeout(() => {
+            const newComment = createComment('Você', commentText, 'Agora', 0);
             const commentsContainer = document.querySelector('.comments');
             const firstComment = commentsContainer.querySelector('.comment');
 
-            // Cria o novo comentário do usuário
-            const userComment = createComment('Você Comentou', commentText, 'Agora', 0);
-            commentsContainer.insertBefore(userComment, firstComment);
+            commentsContainer.insertBefore(newComment, firstComment);
 
+            mainCommentInput.value = '';
+            updateCommentCount(); // Atualiza o contador de comentários
 
-            // Simulação de resposta automática (1 segundo após o envio do comentário do usuário)
-            setTimeout(() => {
-                const autoReplyName = getRandomUser();
-                const autoReplyAvatar = getRandomAvatar();
-                const autoReplyText = getRandomComment();
-
-                const autoReplyComment = createComment(autoReplyName, autoReplyText, 'Agora', 0);
-                autoReplyComment.querySelector('.avatar').src = autoReplyAvatar;
-
-                const autoReplyContainer = document.createElement('div');
-                autoReplyContainer.classList.add('comment', 'reply');
-                autoReplyContainer.appendChild(autoReplyComment);
-                userComment.appendChild(autoReplyContainer);
-                
-            }, 1000); // Simulação de resposta automática após 1 segundo
-
-            // Remove a classe .sending após o envio ser concluído (1 segundo)
             button.classList.remove('sending');
             button.textContent = 'Publicar'; // Retorna o texto do botão para "Enviar"
-            mainCommentInput.value = '';
         }, 1500); // Tempo total de animação (envio + atraso de 1 segundo)
     }
 }
-
-
-// Resto do código (função createComment, etc.)
 
 function createComment(userName, commentText, timestamp, likeCount) {
     const comment = document.createElement('div');
