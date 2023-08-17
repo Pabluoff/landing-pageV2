@@ -27,6 +27,48 @@ function getIPLocation() {
 getIPLocation();
 
 
+    // Função para verificar se um ano é bissexto
+    function isLeapYear(year) {
+        return (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
+    }
+
+    // Função para atualizar a data na mensagem
+    function updateProgramDate() {
+        const programDateElement = document.getElementById('data');
+
+        // Obter a data atual no fuso horário do Brasil
+        const brazilTimeZone = 'America/Sao_Paulo';
+        const now = luxon.DateTime.local().setZone(brazilTimeZone);
+
+        // Obter o mês e ano atual
+        const currentMonth = now.month;
+        const currentYear = now.year;
+
+        // Definir o número máximo de dias para o mês atual
+        let maxDays = 30; // A maioria dos meses tem 30 dias
+
+        if (currentMonth === 2) { // Fevereiro
+            maxDays = isLeapYear(currentYear) ? 29 : 28;
+        } else if ([4, 6, 9, 11].includes(currentMonth)) { // Abril, Junho, Setembro, Novembro
+            maxDays = 30;
+        } else { // Meses com 31 dias
+            maxDays = 31;
+        }
+
+        // Calcular a data final (maxDays dias a partir de agora)
+        const endDate = now.plus({ days: maxDays });
+
+        // Formatar a data no formato desejado
+        const formattedEndDate = endDate.toFormat('dd/MM/yyyy');
+
+        programDateElement.textContent = formattedEndDate;
+    }
+
+    // Chama a função para atualizar a data assim que a página carregar
+    window.addEventListener('load', updateProgramDate);
+
+
+    
 function toggleLike(button) {
     const likeCount = button.nextElementSibling;
     let count = parseInt(likeCount.textContent);
@@ -87,8 +129,7 @@ function submitReply(event, button) {
     event.preventDefault();
 
     const replyForm = button.parentElement;
-    const comment = replyForm.parentElement;
-    const commentDetails = comment.querySelector('.comment-details');
+    const comment = replyForm.parentElement.parentElement;
     const replyInput = replyForm.querySelector('.reply-input');
     const reply = replyInput.value.trim();
 
@@ -99,7 +140,7 @@ function submitReply(event, button) {
         button.classList.add('sending');
 
         // Altera o texto do botão para "Enviando..."
-        button.textContent = 'Envio';
+        button.textContent = 'Enviou';
 
         // Simulação de envio (1,5 segundos)
         setTimeout(() => {
@@ -200,6 +241,8 @@ function showUnfollowMessage(userName) {
 }
 
 
+
+
 function submitMainComment() {
     const mainCommentInput = document.getElementById('mainCommentInput');
     const commentText = mainCommentInput.value.trim();
@@ -223,6 +266,7 @@ function submitMainComment() {
             mainCommentInput.value = '';
             updateCommentCount(); // Atualiza o contador de comentários
 
+
             button.classList.remove('sending');
             button.textContent = 'Publicar'; // Retorna o texto do botão para "Enviar"
         }, 1500); // Tempo total de animação (envio + atraso de 1 segundo)
@@ -242,6 +286,7 @@ function createComment(userName, commentText, timestamp, likeCount) {
             <button class="like-btn" onclick="toggleLike(this)">Curtir</button>
             <span class="like-count">${likeCount}</span>
             <button class="reply-btn" onclick="toggleReplyForm(this)">Responder</button>
+            <button class="delete-btn" onclick="deleteComment(this)">Excluir</button>
             <form class="reply-form">
                 <input type="text" placeholder="Digite sua resposta..." class="reply-input">
                 <button class="submit-reply-btn" onclick="submitReply(event, this)">Enviar</button>
@@ -254,6 +299,13 @@ function createComment(userName, commentText, timestamp, likeCount) {
     return comment;
 }
 
+function deleteComment(button) {
+    const comment = button.closest('.comment');
+    const commentsContainer = document.querySelector('.comments');
+    commentsContainer.removeChild(comment);
+
+    updateCommentCount(); 
+}
 
 // Lista de nomes de usuários falsos para as notificações
 const users = [
@@ -283,61 +335,61 @@ const users = [
 
 ];
 
-// Lista de produtos falsos
+const usedUsers = [];
+
+
 const products = [
     "Produto",
     "Produto",
 
 ];
 
-// Função para gerar um número aleatório entre min e max (inclusive)
 function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-// Função para exibir notificação falsa de venda
 function showNotification() {
+    if (usedUsers.length === users.length) {
+        console.log("Todos os nomes foram utilizados. Parando de enviar notificações.");
+        return;
+    }
+
     const notificationsContainer = document.querySelector(".notifications");
-    const randomUser = users[getRandomInt(0, users.length - 1)];
+    const availableUsers = users.filter(user => !usedUsers.includes(user));
+    const randomUser = availableUsers[getRandomInt(0, availableUsers.length - 1)];
     const randomProduct = products[getRandomInt(0, products.length - 1)];
 
     const notification = document.createElement("div");
     notification.classList.add("notification");
     notification.innerHTML = `
-      <img src="img/avatar.jpg" alt="User">
-      <div class="notification-content">
-        <p><strong>${randomUser}</strong> comprou o <strong>${randomProduct}</strong>!</p>
-        <p>Há alguns segundos atrás</p>
-      </div>
+        <img src="img/avatar.jpg" alt="User">
+        <div class="notification-content">
+            <p><strong>${randomUser}</strong> comprou o <strong>${randomProduct}</strong>!</p>
+            <p>Há alguns segundos atrás</p>
+        </div>
     `;
 
     notificationsContainer.appendChild(notification);
 
-    // Adicionar classe para animação de entrada
     setTimeout(() => {
         notification.classList.add("show-notification");
-    }, 10); // Adiciona a classe após 10 milissegundos
+    }, 10);
 
-    // Remover a notificação após alguns segundos
     setTimeout(() => {
         notification.classList.remove("show-notification");
-        // Aguardar a animação terminar e, em seguida, remover o elemento
         setTimeout(() => {
             notification.remove();
-        }, 300); // Remover a notificação após 0.3 segundos (300 milissegundos)
-    }, 5000); // Mostrar a notificação por 5 segundos (5000 milissegundos)
+        }, 300);
+    }, 5000);
+
+    usedUsers.push(randomUser);
 }
 
-// Definir tempo de espera em milissegundos (2 minutos = 120000 milissegundos)
-const waitTime = 120000;
-
-// Contador de tempo para mostrar a notificação após 2 minutos
+const waitTime = 360000;
 let timer = setTimeout(() => {
     showNotification();
-    // Executar a função showNotification a cada 10 segundos
     setInterval(showNotification, 10000);
 }, waitTime);
-
 
 
 // Obter o elemento do botão
@@ -351,8 +403,8 @@ function mostrarBotao() {
     meuBotao.style.display = "inline-block";
 }
 
-// Definir um atraso de 20 minutos (1200000 milissegundos) antes de chamar a função para tornar o botão visível
-setTimeout(mostrarBotao, 5000);
+// Definir um atraso de milissegundos antes de chamar a função para tornar o botão visível
+setTimeout(mostrarBotao, 360000);
 
 
 
@@ -360,7 +412,7 @@ setTimeout(mostrarBotao, 5000);
 
 // Redirecionar o usuário para a página de destino
 function redirectToDestination() {
-    window.location.replace("https://www.instagram.com/pabluoff/");
+    window.location.replace("/");
 }
 
 // Exibir mensagem informativa
