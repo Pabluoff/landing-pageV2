@@ -23,7 +23,8 @@ body {
     font-family: 'Exo 2', sans-serif;
     overflow-x: hidden;
     min-height: calc(100vh + 1px);
-    background: #0a1540c9;
+	background-color: #1f2029;
+    background: radial-gradient(ellipse at bottom, #1B2735 0%, #12141d 100%);
 }
 
 body {
@@ -82,7 +83,7 @@ span {
     }
 
     .headline {
-        font-size: 40px;
+        font-size: 25px;
     }
 
     iframe {
@@ -97,7 +98,7 @@ span {
 /* Media query em dispositivos móveis */
 @media (max-width: 991px) {
     .message {
-        font-size: 14px;
+        font-size: 11px;
     }
 
     .headline {
@@ -171,7 +172,6 @@ iframe {
     max-width: 800px;
     height: 450px;
     border: none;
-    box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
 }
 
 @media (max-width: 767px) {
@@ -732,3 +732,17 @@ iframe {
 }
 
 
+.delete-btn {
+    background-color: transparent;
+    border: none;
+    color: #999;
+    font-size: 14px;
+    cursor: pointer;
+    padding: 0;
+    margin-left: 8px;
+    transition: color 0.3s;
+}
+
+.delete-btn:hover {
+    color: #ff5e5e; 
+}
