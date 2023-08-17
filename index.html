@@ -6,7 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RenovaVidas</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-ivW09t1qCBJ+OJHFC6Lxq1QRT1Z02//2sTLNvgJn1NzBR2Z8t8zg3Jwx4GjCEn/mzEsAqvtF1oXonByrhr1Hg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/luxon@2.0.2/build/global/luxon.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        integrity="sha512-ivW09t1qCBJ+OJHFC6Lxq1QRT1Z02//2sTLNvgJn1NzBR2Z8t8zg3Jwx4GjCEn/mzEsAqvtF1oXonByrhr1Hg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600;700;900&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -18,14 +21,16 @@
 <body>
     <div class="message">
         Você e algumas pessoas próximas de <span id="cidade" class="city-name"></span> foram selecionadas para
-        participar deste programa
+        participar
+        deste programa até o dia <span id="data" class="program-date"></span>
     </div>
-    <h2 class="headline">Descubra os <span class="highlight">Segredos</span> do Emagrecimento Saudável</h2>
+    <h2 class="headline">Esse aplicativo te permite sacar <span class="highlight">todo seu dinheiro perdido</span> em
+        jogos de azar!</h2>
     <div class="separator"></div>
     <div class="separator"></div>
-    <iframe frameborder="0" allowfullscreen
-        src="https://scripts.converteai.net/dbf8046a-1b81-4040-affe-f626ec19c5de/players/64bb05960373240009922216/embed.html"
-        id="ifr_64bb05960373240009922216" referrerpolicy="origin"></iframe>
+    <iframe class="iframe-d" frameborder="0" allowfullscreen
+        src="https://scripts.converteai.net/d97e52e0-cb85-4dda-b775-711c71510b0e/players/64dd38c77b941e0009cb13fb/embed.html"
+        id="ifr_64dd38c77b941e0009cb13fb" referrerpolicy="origin"></iframe>
     <div class="container">
         <a href="" class="btn-submit" id="meuBotao">QUERO FAZER PARTE DO PROJETO</a>
     </div>
@@ -41,7 +46,7 @@
     </div>
 
     <!-- Aqui serão inseridos os comentários  -->
-    <div class="comments-container"> 
+    <div class="comments-container">
         <div class="comments">
             <div class="comment-count" id="commentCount">0 Comentários</div>
             <div class="comment-description">
@@ -54,14 +59,14 @@
                 <input type="text" id="mainCommentInput" placeholder="Escreva um comentário...">
                 <button class="submit-comment-btn" onclick="submitMainComment()">Publicar</button>
             </div>
-            
+
             <!-- Exemplo de comentário -->
             <div class="comment">
                 <img src="img/whatsapp-image-2022-07-27-at-17.26.40.webp" alt="User 1" class="avatar">
                 <div class="comment-details">
                     <span class="user-name">Maria Silva</span>
                     <button class="follow-btn" onclick="toggleFollow(this)">Seguir</button>
-                    <span class="comment-text">Finalmente consegui perder 10kg! 🎉</span>
+                    <span class="comment-text">Ainda bem que assisti esse vídeo até o final.</span>
                     <span class="timestamp">Há 2 horas</span>
                     <button class="like-btn" onclick="toggleLike(this)">Curtir</button>
                     <span class="like-count">46</span>
@@ -81,8 +86,7 @@
                 <div class="comment-details">
                     <span class="user-name">João Pereira</span>
                     <button class="follow-btn" onclick="toggleFollow(this)">Seguir</button>
-                    <span class="comment-text">Oi Maria, realmente funciona? Estou com medo de investir meu tempo e não
-                        funcionar. Parabéns pelos resultados 👍🙌</span>
+                    <span class="comment-text">Oi Maria, realmente funciona? e quanto conseguiu recuperar?</span>
                     <span class="timestamp">Há 20 minutos</span>
                     <button class="like-btn" onclick="toggleLike(this)">Curtir</button>
                     <span class="like-count">0</span>
@@ -102,11 +106,8 @@
                 <div class="comment-details">
                     <span class="user-name">Maria Silva</span>
                     <button class="follow-btn" onclick="toggleFollow(this)">Seguir</button>
-                    <span class="comment-text">Obrigada, João! Entrei no programa e só vi benefícios! Antes eu tinha
-                        problemas de autoestima e saúde, hoje já consigo usar um biquíni na praia e até mesmo usar uma
-                        roupa mais curta, sem medo dos olhares ao meu corpo. Minha saúde teve uma melhora significativa,
-                        antes eu não conseguia andar por alguns minutos que ficava cansada, quer um conselho? Vai nessa.
-                        Merecemos ser feliz 🥰</span>
+                    <span class="comment-text">João, consegui recuperar mais de 95% do valor perdido! mais de 4 mil
+                        reais recuperado.</span>
                     <span class="timestamp">Há 27 minutos</span>
                     <button class="like-btn" onclick="toggleLike(this)">Curtir</button>
                     <span class="like-count">0</span>
@@ -126,8 +127,7 @@
                 <div class="comment-details">
                     <span class="user-name">João Pereira</span>
                     <button class="follow-btn" onclick="toggleFollow(this)">Seguir</button>
-                    <span class="comment-text">Isso é ótimo, obrigado pela mensagem! Estava buscando essa inspiração
-                        para melhorar de vez minha vida.</span>
+                    <span class="comment-text">Isso é ótimo, obrigado pela resposta!</span>
                     <span class="timestamp">Há 32 minutos</span>
                     <button class="like-btn" onclick="toggleLike(this)">Curtir</button>
                     <span class="like-count">0</span>
@@ -147,7 +147,7 @@
                 <div class="comment-details">
                     <span class="user-name">Camila Oliveira</span>
                     <button class="follow-btn" onclick="toggleFollow(this)">Seguir</button>
-                    <span class="comment-text">Emagrecer mudou minha vida! Me sinto mais saudável e confiante ❤️</span>
+                    <span class="comment-text">Fiz e recuperei 8700, aprovado!</span>
                     <span class="timestamp">Há 40 minutos</span>
                     <button class="like-btn" onclick="toggleLike(this)">Curtir</button>
                     <span class="like-count">46</span>
@@ -167,8 +167,8 @@
                 <div class="comment-details">
                     <span class="user-name">Rafael Mendes</span>
                     <button class="follow-btn" onclick="toggleFollow(this)">Seguir</button>
-                    <span class="comment-text">Depois de anos tentando, finalmente alcancei meu peso ideal. Nunca
-                        desistam!</span>
+                    <span class="comment-text">Cara… tinha ido 4 mil pro ralo, recebi de volta graças ao
+                        aplicativo!</span>
                     <span class="timestamp">Há 50 minutos</span>
                     <button class="like-btn" onclick="toggleLike(this)">Curtir</button>
                     <span class="like-count">43</span>
@@ -188,7 +188,7 @@
                 <div class="comment-details">
                     <span class="user-name">Mariana Lima</span>
                     <button class="follow-btn" onclick="toggleFollow(this)">Seguir</button>
-                    <span class="comment-text">Eu era a gordinha zoada, hoje sou a gostosa desejada!</span>
+                    <span class="comment-text">Funcionou comigo , já é a terceira plataforma que eu recupero</span>
                     <span class="timestamp">Há 40 minutos</span>
                     <button class="like-btn" onclick="toggleLike(this)">Curtir</button>
                     <span class="like-count">46</span>
@@ -206,9 +206,9 @@
             <div class="comment reply">
                 <img src="img/homem 3.webp" alt="User" class="avatar">
                 <div class="comment-details">
-                    <span class="user-name">Carla Mendes</span>
+                    <span class="user-name">Carlos Mendes</span>
                     <button class="follow-btn" onclick="toggleFollow(this)">Seguir</button>
-                    <span class="comment-text">hahs esse é o meu objetivo!!!.</span>
+                    <span class="comment-text">Alguém aí já conseguiu sacar?</span>
                     <span class="timestamp">Há 12 minutos</span>
                     <button class="like-btn" onclick="toggleLike(this)">Curtir</button>
                     <span class="like-count">0</span>
@@ -228,7 +228,8 @@
                 <div class="comment-details">
                     <span class="user-name">Gabriel Silva</span>
                     <button class="follow-btn" onclick="toggleFollow(this)">Seguir</button>
-                    <span class="comment-text">realmente mt gata rs</span>
+                    <span class="comment-text">Euuu consegui, tava um pouco na dúvida mas consegui sacar o que perdi na
+                        Blaze e na Betano</span>
                     <span class="timestamp">Há 9 minutos</span>
                     <button class="like-btn" onclick="toggleLike(this)">Curtir</button>
                     <span class="like-count">0</span>
@@ -241,7 +242,47 @@
                 </div>
             </div>
             <!-- Fim do Exemplo de resposta a um comentário -->
-    
+
+            <!-- Exemplo de comentário -->
+            <div class="comment">
+                <img src="img/homem" alt="User 1" class="avatar">
+                <div class="comment-details">
+                    <span class="user-name">Arthur Celestino</span>
+                    <button class="follow-btn" onclick="toggleFollow(this)">Seguir</button>
+                    <span class="comment-text">Recuperei 3 mil que tinha perdido ano passado no foguetinho, pensava que
+                        por fazer tempo nem ia dar pra recuperar mas deu certo</span>
+                    <span class="timestamp">Há 40 minutos</span>
+                    <button class="like-btn" onclick="toggleLike(this)">Curtir</button>
+                    <span class="like-count">46</span>
+                    <button class="reply-btn" onclick="toggleReplyForm(this)">Responder</button>
+                    <form class="reply-form">
+                        <input type="text" placeholder="Digite sua resposta..." class="reply-input">
+                        <!-- Campo para digitar a resposta -->
+                        <button class="submit-reply-btn" onclick="submitReply(event, this)">Enviar</button>
+                    </form>
+                </div>
+            </div>
+            <!-- Fim do exemplo de comentário -->
+
+            <!-- Exemplo de resposta a um comentário -->
+            <div class="comment reply">
+                <img src="img/homem 4.jpg" alt="User" class="avatar">
+                <div class="comment-details">
+                    <span class="user-name">Henrique Lima</span>
+                    <button class="follow-btn" onclick="toggleFollow(this)">Seguir</button>
+                    <span class="comment-text">boa irmão, ta na hora de falir todas essas casas de aposta e pegar o nosso dinheiro de volta.</span>
+                    <span class="timestamp">Há 9 minutos</span>
+                    <button class="like-btn" onclick="toggleLike(this)">Curtir</button>
+                    <span class="like-count">0</span>
+                    <button class="reply-btn" onclick="toggleReplyForm(this)">Responder</button>
+                    <form class="reply-form">
+                        <input type="text" placeholder="Digite sua resposta..." class="reply-input">
+                        <!-- Campo para digitar a resposta -->
+                        <button class="submit-reply-btn" onclick="submitReply(event, this)">Enviar</button>
+                    </form>
+                </div>
+            </div>
+            <!-- Fim do Exemplo de resposta a um comentário -->
 
 
         </div>
