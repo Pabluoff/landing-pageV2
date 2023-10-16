@@ -27,58 +27,51 @@ function getIPLocation() {
 getIPLocation();
 
 
-    // Função para verificar se um ano é bissexto
-    function isLeapYear(year) {
-        return (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
+// Função para verificar se um ano é bissexto
+function isLeapYear(year) {
+    return (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
+}
+
+// Função para atualizar a data na mensagem
+function updateProgramDate() {
+    const programDateElement = document.getElementById('data');
+
+    // Obter a data atual no fuso horário do Brasil
+    const brazilTimeZone = 'America/Sao_Paulo';
+    const now = luxon.DateTime.local().setZone(brazilTimeZone);
+
+    // Obter o mês e ano atual
+    const currentMonth = now.month;
+    const currentYear = now.year;
+
+    // Definir o número máximo de dias para o mês atual
+    let maxDays = 30; // A maioria dos meses tem 30 dias
+
+    if (currentMonth === 2) { // Fevereiro
+        maxDays = isLeapYear(currentYear) ? 29 : 28;
+    } else if ([4, 6, 9, 11].includes(currentMonth)) {
+        maxDays = 30;
+    } else {
+        maxDays = 31;
     }
 
-    // Função para atualizar a data na mensagem
-    function updateProgramDate() {
-        const programDateElement = document.getElementById('data');
+    const formattedStartDate = now.toFormat('dd/MM/yyyy');
 
-        // Obter a data atual no fuso horário do Brasil
-        const brazilTimeZone = 'America/Sao_Paulo';
-        const now = luxon.DateTime.local().setZone(brazilTimeZone);
+    programDateElement.textContent = formattedStartDate;
+}
 
-        // Obter o mês e ano atual
-        const currentMonth = now.month;
-        const currentYear = now.year;
-
-        // Definir o número máximo de dias para o mês atual
-        let maxDays = 30; // A maioria dos meses tem 30 dias
-
-        if (currentMonth === 2) { // Fevereiro
-            maxDays = isLeapYear(currentYear) ? 29 : 28;
-        } else if ([4, 6, 9, 11].includes(currentMonth)) { // Abril, Junho, Setembro, Novembro
-            maxDays = 30;
-        } else { // Meses com 31 dias
-            maxDays = 31;
-        }
-
-        // Calcular a data final (maxDays dias a partir de agora)
-        const endDate = now.plus({ days: maxDays });
-
-        // Formatar a data no formato desejado
-        const formattedEndDate = endDate.toFormat('dd/MM/yyyy');
-
-        programDateElement.textContent = formattedEndDate;
-    }
-
-    // Chama a função para atualizar a data assim que a página carregar
-    window.addEventListener('load', updateProgramDate);
+window.addEventListener('load', updateProgramDate);
 
 
-    
+
 function toggleLike(button) {
     const likeCount = button.nextElementSibling;
     let count = parseInt(likeCount.textContent);
 
     if (button.classList.contains('liked')) {
-        // Se o botão já estiver com a classe 'liked', diminuir a contagem
         button.classList.remove('liked');
         count--;
     } else {
-        // Caso contrário, aumentar a contagem e adicionar a classe 'liked' para a animação
         button.classList.add('liked');
         count++;
     }
@@ -87,21 +80,17 @@ function toggleLike(button) {
 }
 
 
-// Função para gerar um número aleatório entre min e max
 function getRandomNumber(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-// Função para definir o número de curtidas como 0 para respostas enviadas
 function submitReply(event, button) {
 
-    // Definir o número de curtidas como 0 para respostas enviadas
     const likeCount = replyContainer.querySelector('.like-count');
     likeCount.textContent = '0';
 
 }
 
-// Função para atualizar o contador de curtidas aleatoriamente para os comentários
 function updateRandomLikes() {
     const likeCountElements = document.querySelectorAll('.like-count');
     likeCountElements.forEach((likeCount) => {
@@ -110,7 +99,6 @@ function updateRandomLikes() {
     });
 }
 
-// Chamar a função para definir o número inicial de curtidas aleatoriamente
 updateRandomLikes();
 
 
@@ -136,13 +124,10 @@ function submitReply(event, button) {
 
 
     if (reply !== '') {
-        // Adiciona a classe .sending ao botão
         button.classList.add('sending');
 
-        // Altera o texto do botão para "Enviando..."
         button.textContent = 'Enviou';
 
-        // Simulação de envio (1,5 segundos)
         setTimeout(() => {
             const replyContainer = document.createElement('div');
             replyContainer.classList.add('comment', 'reply',);
@@ -166,14 +151,13 @@ function submitReply(event, button) {
 
             replyInput.value = '';
             replyForm.style.display = 'none';
-            updateCommentCount(); // Atualiza o contador de comentários
+            updateCommentCount(); 
 
-            // Remove a classe .sending após o envio ser concluído (1 segundo)
             setTimeout(() => {
                 button.classList.remove('sending');
-                button.textContent = 'Enviar'; // Retorna o texto do botão para "Enviar"
+                button.textContent = 'Enviar';
             }, 1000);
-        }, 1500); // Tempo total de animação (envio + atraso de 1 segundo)
+        }, 1500);
     }
 }
 
@@ -192,7 +176,6 @@ replyForms.forEach(form => {
     form.addEventListener('submit', submitReply);
 });
 
-// Chamar a função para atualizar o contador inicialmente
 updateCommentCount();
 
 
@@ -304,7 +287,7 @@ function deleteComment(button) {
     const commentsContainer = document.querySelector('.comments');
     commentsContainer.removeChild(comment);
 
-    updateCommentCount(); 
+    updateCommentCount();
 }
 
 // Lista de nomes de usuários falsos para as notificações
@@ -479,6 +462,5 @@ window.addEventListener("keydown", function (event) {
         redirectToOtherPage();
     }
 });
-
 
 
