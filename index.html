@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="PT-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RenovaVidas</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/luxon@2.0.2/build/global/luxon.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
@@ -14,26 +13,35 @@
     <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600;700;900&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="icon" type="image/x-icon" href="img/safe.png">
+    <link rel="stylesheet" href="style.css">
+    <title>Inicio</title>
 </head>
 
 <body>
-    <div class="message">
+    <div class="header">
         Você e algumas pessoas próximas de <span id="cidade" class="city-name"></span> foram selecionadas para
         participar
         deste programa até o dia <span id="data" class="program-date"></span>
     </div>
-    <h2 class="headline">Esse aplicativo te permite sacar <span class="highlight">todo seu dinheiro perdido</span> em
-        jogos de azar!</h2>
-    <div class="separator"></div>
-    <div class="separator"></div>
-    <iframe class="iframe-d" frameborder="0" allowfullscreen
-        src="https://scripts.converteai.net/d97e52e0-cb85-4dda-b775-711c71510b0e/players/64dd38c77b941e0009cb13fb/embed.html"
-        id="ifr_64dd38c77b941e0009cb13fb" referrerpolicy="origin"></iframe>
-    <div class="container">
-        <a href="promo.html" class="btn-submit" id="meuBotao">ACESSO AO APLICATIVO</a>
+
+    <div class="content">
+        <h2 class="headline-title">Esse aplicativo te permite <span class="highlight">sacar todo
+                seu dinheiro</span> perdido em jogos de azar!</h2>
+        <div class="espaco"></div>
+        <div id="vid_65aab897221d11000a82139d" style="position:relative;width:100%;padding: 46.27249357326478% 0 0;">
+            <img id="thumb_65aab897221d11000a82139d"
+                src="https://images.converteai.net/46309fd0-a3dd-415b-bff8-1b472b49bf2f/players/65aab897221d11000a82139d/thumbnail.jpg"
+                style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block;">
+            <div id="backdrop_65aab897221d11000a82139d"
+                style="position:absolute;top:0;width:100%;height:100%;-webkit-backdrop-filter:blur(5px);backdrop-filter:blur(5px);">
+            </div>
+        </div>
+        <script type="text/javascript"
+            id="scr_65aab897221d11000a82139d">var s = document.createElement("script"); s.src = "https://scripts.converteai.net/46309fd0-a3dd-415b-bff8-1b472b49bf2f/players/65aab897221d11000a82139d/player.js", s.async = !0, document.head.appendChild(s);</script>
+        <div class="espaco"></div>
+        <a href="" class="button" id="meuBotao">ACESSO AO APLICATIVO</a>
     </div>
+
     <div class="follow-message" style="display: none;">
         <p>Você começou a seguir <span class="followed-user">Nome do Usuário</span>!</p>
     </div>
@@ -331,8 +339,6 @@
             <a href="#politica-de-privacidade">Política de Privacidade</a>
         </div>
     </footer>
-
-
 
     <script src="script.js"></script>
 </body>

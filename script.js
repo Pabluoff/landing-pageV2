@@ -151,7 +151,7 @@ function submitReply(event, button) {
 
             replyInput.value = '';
             replyForm.style.display = 'none';
-            updateCommentCount(); 
+            updateCommentCount();
 
             setTimeout(() => {
                 button.classList.remove('sending');
@@ -381,86 +381,14 @@ const meuBotao = document.getElementById("meuBotao");
 // Tornar o botão invisível inicialmente
 meuBotao.style.display = "none";
 
-// Função para tornar o botão visível após 5 segundos
+// Função para tornar o botão visível
 function mostrarBotao() {
-    meuBotao.style.display = "inline-block";
+    meuBotao.style.display = "flex";
 }
 
 // Definir um atraso de milissegundos antes de chamar a função para tornar o botão visível
-setTimeout(mostrarBotao, 360000);
+setTimeout(mostrarBotao, 420000);
 
 
-
-
-
-// Redirecionar o usuário para a página de destino
-function redirectToDestination() {
-    window.location.replace("/");
-}
-
-// Exibir mensagem informativa
-function showInfoMessage() {
-    const message = "SKIN IN THE GAME";
-
-    // Criar a caixa de mensagem e o conteúdo
-    const messageBox = document.createElement("div");
-    messageBox.classList.add("message-box");
-
-    const messageContent = document.createElement("div");
-    messageContent.classList.add("message-content");
-    messageContent.textContent = message;
-
-    // Adicionar conteúdo à caixa de mensagem
-    messageBox.appendChild(messageContent);
-
-    // Adicionar a caixa de mensagem ao body
-    document.body.appendChild(messageBox);
-
-    // Redirecionar após 2 segundos
-    setTimeout(() => {
-        redirectToDestination();
-    }, 2000);
-}
-
-// Tentar bloquear a inspeção da página
-// Desabilitar o atalho Ctrl+Shift+I
-document.addEventListener("keydown", function (event) {
-    if (event.ctrlKey && event.shiftKey && event.keyCode === 73) {
-        event.preventDefault();
-    }
-});
-
-// Bloquear o menu de contexto
-document.addEventListener("contextmenu", function (event) {
-    event.preventDefault();
-});
-
-// Bloquear acesso ao código-fonte
-document.onkeydown = function (event) {
-    if (event.ctrlKey && (event.keyCode === 85 || event.keyCode === 83)) {
-        showInfoMessage();
-        return false; // Retorne false para evitar que a ação padrão ocorra
-    }
-};
-
-// Bloquear atalho para inspecionar elemento
-document.addEventListener("keydown", function (event) {
-    if (event.ctrlKey && event.altKey && event.keyCode === 67) {
-        event.preventDefault();
-    }
-});
-
-
-window.addEventListener("contextmenu", function (event) {
-    event.preventDefault();
-    redirectToOtherPage();
-});
-
-window.addEventListener("keydown", function (event) {
-    if (event.ctrlKey && event.shiftKey && event.keyCode == 73) {
-        event.preventDefault();
-        redirectToOtherPage();
-    }
-});
 
 

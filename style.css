@@ -1,15 +1,5 @@
 @charset "UTF-8";
 
-:root {
-    --principal: #ff5252;
-    --cinzaMedio: #666666;
-    --text-primary: #E9F4FF;
-    --text-secondary: #7F92A5;
-    --text-white: transparent;
-    --gradient: linear-gradient(89.78deg, #00ec4f 0.19%, #00ff2a 99.82%);
-    --dark-blue: #030409;
-}
-
 * {
     padding: 0px;
     margin: 0px;
@@ -17,39 +7,18 @@
     font-family: 'Exo 2', sans-serif;
 }
 
-html,
 body {
-    color: var(--text-white);
+    color: white;
     font-family: 'Exo 2', sans-serif;
     overflow-x: hidden;
     min-height: calc(100vh + 1px);
-	background-color: #1f2029;
+    background-color: #1f2029;
     background: radial-gradient(ellipse at bottom, #1B2735 0%, #12141d 100%);
 }
 
-body {
-    padding-right: 0 !important;
-}
 
-h1,
-h2,
-h3,
-h4,
-p,
-span {
-    margin: 0px;
-    padding: 0px;
-}
-
-.text-gradient-green {
-    background: linear-gradient(89.78deg, #00d50b 0.19%, #04ff00 99.82%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-.message {
-    background-color: #00ec4f;
+.header {
+    background-color: #00ec4b;
     font-weight: bold;
     color: #000000;
     padding: 10px;
@@ -61,14 +30,20 @@ span {
     pointer-events: none;
 }
 
-.city-name {
-    color: #131836;
+
+.content {
+    margin-top: 2px;
+    padding: 20px;
+    background-color: transparent;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.headline {
+.headline-title {
     font-size: 30px;
     font-weight: bold;
-    color: var(--text-primary);
+    color: white;
     text-align: center;
     margin-top: 40px;
     text-transform: uppercase;
@@ -76,132 +51,61 @@ span {
     pointer-events: none;
 }
 
+.highlight {
+    color: #00ec4b;
+}
+
+.espaco {
+    margin-top: 35px;
+}
+
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    margin: 0 auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #fff;
+    background-color: #00d03f;
+    border: 2px solid #02d20d;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.button:hover {
+    background-color: #01af35;
+}
+
 /* Media query apenas em desktop */
 @media (min-width: 992px) {
-    .message {
+    .header {
         font-size: 20px;
     }
 
-    .headline {
-        font-size: 25px;
-    }
-
-    iframe {
-        height: 500px;
-    }
-
-    .btn-submit {
-        margin-top: 40px;
-    }
 }
 
 /* Media query em dispositivos móveis */
 @media (max-width: 991px) {
-    .message {
+    .header {
         font-size: 11px;
     }
 
-    .headline {
-        font-size: 26px;
-    }
-}
-
-.highlight {
-    color: #00ec4f;
-    font-weight: bold;
-}
-
-.separator {
-    height: 25px;
-}
-
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.btn-submit {
-    background: var(--gradient);
-    box-shadow: 0px 13px 44px 0px rgba(14, 198, 63, 0.4);
-    color: #000000;
-    border: none;
-    padding: 20px 40px;
-    text-decoration: none;
-    border-radius: 50px;
-    font-size: 34px;
-    cursor: pointer;
-    font-weight: bold;
-    animation: pulsar 1.5s infinite;
-    text-shadow: 0px 6px 14px rgba(0, 0, 0, 0.25);
-}
-
-/* Media query para dispositivos móveis com largura menor ou igual a 767px */
-@media (max-width: 767px) {
-    .btn-submit {
-        padding: 15px 30px;
-        font-size: 15px;
-        align-items: center;
-        margin-top: -330px;
-    }
-}
-
-@keyframes pulsar {
-    0% {
-        transform: scale(1);
+    .headline-title {
+        font-size: 24px;
     }
 
-    50% {
-        transform: scale(1.1);
-        /* Faz o botão crescer */
-    }
-
-    100% {
-        transform: scale(1);
-    }
-}
-
-.btn-submit:hover {
-    --gradient: linear-gradient(89.78deg, #00c521ad 0.19%, #00d54edf 99.82%);
-}
-
-iframe {
-    display: block;
-    margin: 0 auto;
-    width: 100%;
-    max-width: 800px;
-    height: 450px;
-    border: none;
-}
-
-@media (max-width: 767px) {
-    iframe {
-        margin-left: 10px;
-        margin-right: 10px;
-        max-width: calc(100% - 20px);
-        /* é a soma das margens esquerda e direita */
-    }
-}
-
-/* Media query para iPhone 11 Pro */
-@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-device-pixel-ratio: 3) {
-    iframe {
-        margin-left: 10px;
-        margin-right: 10px;
-        max-width: calc(100% - 20px);
-        /* é a soma das margens esquerda e direita */
-    }
-
-    .btn-submit {
-        padding: 15px 30px;
-        font-size: 15px;
-        align-items: center;
-        margin-top: -380px;
+    .content {
+        margin-bottom: 130px;
     }
 }
 
 
-
+/*Coments abaixo*/
 .comment-count {
     font-weight: bold;
     color: #000000;
@@ -272,7 +176,6 @@ iframe {
 
 
 .like-btn {
-    /* Outras propriedades de estilo aqui */
     transition: transform 0.2s ease-in-out;
 }
 
@@ -280,7 +183,6 @@ iframe {
     transform: scale(1.1);
 
 }
-
 
 
 .like-count {
@@ -302,7 +204,6 @@ iframe {
 }
 
 .comment .reply.reply {
-    /* Remove a margem e a borda para respostas subsequentes */
     margin-left: 40px;
     padding-left: 10px;
     border-left: 2px solid #ccc;
@@ -348,13 +249,11 @@ iframe {
 
 .comment {
     max-width: 100%;
-    /* Adiciona largura máxima para os comentários */
 }
 
 .comment-text,
 .reply-input {
     word-wrap: break-word;
-    /* Força quebra de linha quando necessário */
 }
 
 
@@ -374,7 +273,6 @@ iframe {
 }
 
 
-/* estilo para a classe .sending */
 .submit-reply-btn.sending {
     background-color: #ddd;
     cursor: not-allowed;
@@ -391,7 +289,6 @@ iframe {
 }
 
 
-/* Estilos do botão Seguir */
 .follow-btn {
     background-color: transparent;
     color: #1877f2;
@@ -410,7 +307,6 @@ iframe {
     border: 2px solid transparent;
 }
 
-/* Estilo do botão Seguindo */
 .following-btn {
     color: #8194ad;
 }
@@ -434,7 +330,6 @@ iframe {
     border-radius: 20px;
     z-index: 9999;
     animation: slide-up 1s, slide-down 1s 2s;
-    /* Adiciona animação de saída após 3 segundos */
     white-space: nowrap;
 }
 
@@ -744,5 +639,5 @@ iframe {
 }
 
 .delete-btn:hover {
-    color: #ff5e5e; 
+    color: #ff5e5e;
 }
