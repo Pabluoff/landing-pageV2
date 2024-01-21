@@ -65,6 +65,10 @@
                 resultElement.innerHTML = "Você já solicitou o reembolso. O processamento está em andamento.";
                 resultElement.style.color = "#4caf50";
                 submitBtn.disabled = true; // Desativar o botão apenas nessa condição
+
+                // Limpar os campos de input
+                document.getElementById("email").value = "";
+                document.getElementById("pixKey").value = "";
             } else if (email.trim() === '' || pixKey.trim() === '') {
                 // Se campos estão vazios, exibir mensagem de erro
                 resultElement.innerHTML = "Por favor, preencha todos os campos.";
@@ -80,6 +84,10 @@
                     resultElement.style.color = "#4caf50";
 
                     salvarEnvio(); // Salvar o estado de envio
+
+                    // Limpar os campos de input
+                    document.getElementById("email").value = "";
+                    document.getElementById("pixKey").value = "";
                 }, 2000); // Simulando uma operação de 2 segundos
             }
         }
