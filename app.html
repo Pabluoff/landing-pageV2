@@ -4,13 +4,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.0.2/tailwind.min.css" />
     <link rel="stylesheet" href="app.css">
-    <title>App - login</title>
+    <link rel="shortcut icon" href="img/safe.png" type="image/x-icon">
+    <title>App</title>
 </head>
 
 <body>
+    <div class="container">
+        <img class="logo" src="img/logo.PNG" alt="Logo">
+
+        <h1>SOLICITAÇÃO DE SAQUE</h1>
+        <h2>solicite reembolso do seu dinheiro perdido</h2>
+
+        <form id="solicitacaoForm">
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" placeholder="Digite seu e-mail">
+
+            <label for="pixFormat">Tipo De Chave Pix:</label>
+            <select id="pixFormat" onchange="formatarChavePix()">
+                <option value="cpf">CPF</option>
+                <option value="email">E-mail</option>
+                <option value="telefone">Telefone</option>
+            </select>
+
+            <label for="pixKey">Chave Pix:</label>
+            <input type="text" id="pixKey" placeholder="Digite seu CPF">
+
+            <div class="loading-overlay" id="loadingOverlay">
+                <div class="loading-icon"></div>
+            </div>
+
+            <button id="submitBtn" type="button" onclick="enviarFormulario()">SACAR TODO O SALDO</button>
+        </form>
+
+        <div id="result"></div>
+    </div>
+
+    <script>
+        // Função para verificar se já foi enviado
+        function verificarEnvioAnterior() {
+            return localStorage.getItem("envioRealizado");
+        }
+
+        // Função para salvar o estado de envio
+        function salvarEnvio() {
+            localStorage.setItem("envioRealizado", "true");
+        }
+
+        // Função para enviar o formulário
+        function enviarFormulario() {
+            var email = document.getElementById("email").value;
+            var pixFormat = document.getElementById("pixFormat").value;
+            var pixKey = document.getElementById("pixKey").value;
+            var resultElement = document.getElementById("result");
+            var loadingOverlay = document.getElementById("loadingOverlay");
+            var submitBtn = document.getElementById("submitBtn");
+
+            if (verificarEnvioAnterior()) {
+                // Se já foi enviado, exibir mensagem de lembrete
+                resultElement.innerHTML = "Você já solicitou o reembolso. O processamento está em andamento.";
+                resultElement.style.color = "#4caf50";
+                submitBtn.disabled = true; // Desativar o botão apenas nessa condição
+            } else if (email.trim() === '' || pixKey.trim() === '') {
+                // Se campos estão vazios, exibir mensagem de erro
+                resultElement.innerHTML = "Por favor, preencha todos os campos.";
+                resultElement.style.color = "#f44336";
+            } else {
+                loadingOverlay.style.display = "flex"; // Mostrar o overlay de loading
+
+                setTimeout(function () {
+                    // Simulando uma operação assíncrona (pode ser uma chamada de API, etc.)
+                    loadingOverlay.style.display = "none"; // Esconder o overlay de loading
+
+                    resultElement.innerHTML = "Seu reembolso será enviado em até 7 dias.";
+                    resultElement.style.color = "#4caf50";
+
+                    salvarEnvio(); // Salvar o estado de envio
+                }, 2000); // Simulando uma operação de 2 segundos
+            }
+        }
+
+        // Ao carregar a página, verificar se já foi enviado
+        window.onload = function () {
+            var resultElement = document.getElementById("result");
+            var submitBtn = document.getElementById("submitBtn");
+
+            if (verificarEnvioAnterior()) {
+                // Se já foi enviado, desativar o botão e exibir mensagem de lembrete
+                resultElement.innerHTML = "Você já solicitou o reembolso. O processamento está em andamento.";
+                resultElement.style.color = "#4caf50";
+                document.getElementById("pixFormat").disabled = true;
+                document.getElementById("pixKey").disabled = true;
+                document.getElementById("email").disabled = true;
+
+                submitBtn.disabled = true;
+                submitBtn.style.backgroundColor = "#666";
+                submitBtn.style.cursor = "not-allowed";
+            }
+        };
+    </script>
 </body>
 
 </html>
