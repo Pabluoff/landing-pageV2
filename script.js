@@ -387,7 +387,7 @@ function mostrarBotao() {
 }
 
 // Definir um atraso de milissegundos antes de chamar a função para tornar o botão visível
-setTimeout(mostrarBotao, 420000);
+setTimeout(mostrarBotao, 570000);
 
 
 
