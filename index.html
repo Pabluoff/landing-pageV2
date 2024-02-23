@@ -43,6 +43,260 @@
         <a href="https://go.perfectpay.com.br/PPU38CNLPON" class="button" id="meuBotao">QUERO VIVER DE FREE
             FIRE</a>
     </div>
+    <div class="follow-message" style="display: none;">
+        <p>Você começou a seguir <span class="followed-user">Nome do Usuário</span>!</p>
+    </div>
+    <div class="unfollow-message" style="display: none;">
+        <p>Você parou de seguir <span class="unfollowed-user">Nome do Usuário</span>!</p>
+    </div>
+
+    <div class="notifications">
+        <!-- As notificações falsas aparecerão aqui -->
+    </div>
+
+    <!-- Aqui serão inseridos os comentários  -->
+    <div class="comments-container">
+        <div class="comments">
+            <div class="comment-count" id="commentCount">0 Comentários</div>
+            <div class="comment-description">
+                Deixe um comentário abaixo!
+            </div>
+
+            <!-- Campo de input para comentário principal -->
+            <div class="comment-input">
+                <img src="img/avatar.jpg" alt="User" class="avatar">
+                <input type="text" id="mainCommentInput" placeholder="Escreva um comentário...">
+                <button class="submit-comment-btn" onclick="submitMainComment()">Publicar</button>
+            </div>
+
+            <!-- Exemplo de comentário -->
+            <div class="comment">
+                <img src="img/whatsapp-image-2022-07-27-at-17.26.40.webp" alt="User 1" class="avatar">
+                <div class="comment-details">
+                    <span class="user-name">Maria Silva</span>
+                    <button class="follow-btn" onclick="toggleFollow(this)">Seguir</button>
+                    <span class="comment-text">Ainda bem que assisti esse vídeo até o final.</span>
+                    <span class="timestamp">Há 2 horas</span>
+                    <button class="like-btn" onclick="toggleLike(this)">Curtir</button>
+                    <span class="like-count">46</span>
+                    <button class="reply-btn" onclick="toggleReplyForm(this)">Responder</button>
+                    <form class="reply-form">
+                        <input type="text" placeholder="Digite sua resposta..." class="reply-input">
+                        <!-- Campo para digitar a resposta -->
+                        <button class="submit-reply-btn" onclick="submitReply(event, this)">Enviar</button>
+                    </form>
+                </div>
+            </div>
+            <!-- Fim do exemplo de comentário -->
+
+            <!-- Exemplo de resposta a um comentário -->
+            <div class="comment reply">
+                <img src="img/11.jpg" alt="User" class="avatar">
+                <div class="comment-details">
+                    <span class="user-name">João Pereira</span>
+                    <button class="follow-btn" onclick="toggleFollow(this)">Seguir</button>
+                    <span class="comment-text">Oi Maria, realmente funciona? e quanto conseguiu recuperar?</span>
+                    <span class="timestamp">Há 20 minutos</span>
+                    <button class="like-btn" onclick="toggleLike(this)">Curtir</button>
+                    <span class="like-count">0</span>
+                    <button class="reply-btn" onclick="toggleReplyForm(this)">Responder</button>
+                    <form class="reply-form">
+                        <input type="text" placeholder="Digite sua resposta..." class="reply-input">
+                        <!-- Campo para digitar a resposta -->
+                        <button class="submit-reply-btn" onclick="submitReply(event, this)">Enviar</button>
+                    </form>
+                </div>
+            </div>
+            <!-- Fim do exemplo de resposta a um comentário -->
+
+            <!-- Exemplo de resposta a um comentário -->
+            <div class="comment reply">
+                <img src="img/whatsapp-image-2022-07-27-at-17.26.40.webp" alt="User" class="avatar">
+                <div class="comment-details">
+                    <span class="user-name">Maria Silva</span>
+                    <button class="follow-btn" onclick="toggleFollow(this)">Seguir</button>
+                    <span class="comment-text">João, consegui recuperar mais de 95% do valor perdido! mais de 4 mil
+                        reais recuperado.</span>
+                    <span class="timestamp">Há 27 minutos</span>
+                    <button class="like-btn" onclick="toggleLike(this)">Curtir</button>
+                    <span class="like-count">0</span>
+                    <button class="reply-btn" onclick="toggleReplyForm(this)">Responder</button>
+                    <form class="reply-form">
+                        <input type="text" placeholder="Digite sua resposta..." class="reply-input">
+                        <!-- Campo para digitar a resposta -->
+                        <button class="submit-reply-btn" onclick="submitReply(event, this)">Enviar</button>
+                    </form>
+                </div>
+            </div>
+            <!-- Fim do Exemplo de resposta a um comentário -->
+
+            <!-- Exemplo de resposta a um comentário -->
+            <div class="comment reply">
+                <img src="img/11.jpg" alt="User" class="avatar">
+                <div class="comment-details">
+                    <span class="user-name">João Pereira</span>
+                    <button class="follow-btn" onclick="toggleFollow(this)">Seguir</button>
+                    <span class="comment-text">Isso é ótimo, obrigado pela resposta!</span>
+                    <span class="timestamp">Há 32 minutos</span>
+                    <button class="like-btn" onclick="toggleLike(this)">Curtir</button>
+                    <span class="like-count">0</span>
+                    <button class="reply-btn" onclick="toggleReplyForm(this)">Responder</button>
+                    <form class="reply-form">
+                        <input type="text" placeholder="Digite sua resposta..." class="reply-input">
+                        <!-- Campo para digitar a resposta -->
+                        <button class="submit-reply-btn" onclick="submitReply(event, this)">Enviar</button>
+                    </form>
+                </div>
+            </div>
+            <!-- Fim do Exemplo de resposta a um comentário -->
+
+            <!-- Exemplo de comentário -->
+            <div class="comment">
+                <img src="img/16.jpg" alt="User 1" class="avatar">
+                <div class="comment-details">
+                    <span class="user-name">Camila Oliveira</span>
+                    <button class="follow-btn" onclick="toggleFollow(this)">Seguir</button>
+                    <span class="comment-text">Fiz e recuperei 8700, aprovado!</span>
+                    <span class="timestamp">Há 40 minutos</span>
+                    <button class="like-btn" onclick="toggleLike(this)">Curtir</button>
+                    <span class="like-count">46</span>
+                    <button class="reply-btn" onclick="toggleReplyForm(this)">Responder</button>
+                    <form class="reply-form">
+                        <input type="text" placeholder="Digite sua resposta..." class="reply-input">
+                        <!-- Campo para digitar a resposta -->
+                        <button class="submit-reply-btn" onclick="submitReply(event, this)">Enviar</button>
+                    </form>
+                </div>
+            </div>
+            <!-- Fim do exemplo de comentário -->
+
+            <!-- Exemplo de comentário -->
+            <div class="comment">
+                <img src="img/2-1.jpg" alt="User 1" class="avatar">
+                <div class="comment-details">
+                    <span class="user-name">Rafael Mendes</span>
+                    <button class="follow-btn" onclick="toggleFollow(this)">Seguir</button>
+                    <span class="comment-text">Cara… tinha ido 4 mil pro ralo, recebi de volta graças ao
+                        aplicativo!</span>
+                    <span class="timestamp">Há 50 minutos</span>
+                    <button class="like-btn" onclick="toggleLike(this)">Curtir</button>
+                    <span class="like-count">43</span>
+                    <button class="reply-btn" onclick="toggleReplyForm(this)">Responder</button>
+                    <form class="reply-form">
+                        <input type="text" placeholder="Digite sua resposta..." class="reply-input">
+                        <!-- Campo para digitar a resposta -->
+                        <button class="submit-reply-btn" onclick="submitReply(event, this)">Enviar</button>
+                    </form>
+                </div>
+            </div>
+            <!-- Fim do exemplo de comentário -->
+
+            <!-- Exemplo de comentário -->
+            <div class="comment">
+                <img src="img/1640219974506903-0.jpg" alt="User 1" class="avatar">
+                <div class="comment-details">
+                    <span class="user-name">Mariana Lima</span>
+                    <button class="follow-btn" onclick="toggleFollow(this)">Seguir</button>
+                    <span class="comment-text">Funcionou comigo , já é a terceira plataforma que eu recupero</span>
+                    <span class="timestamp">Há 40 minutos</span>
+                    <button class="like-btn" onclick="toggleLike(this)">Curtir</button>
+                    <span class="like-count">46</span>
+                    <button class="reply-btn" onclick="toggleReplyForm(this)">Responder</button>
+                    <form class="reply-form">
+                        <input type="text" placeholder="Digite sua resposta..." class="reply-input">
+                        <!-- Campo para digitar a resposta -->
+                        <button class="submit-reply-btn" onclick="submitReply(event, this)">Enviar</button>
+                    </form>
+                </div>
+            </div>
+            <!-- Fim do exemplo de comentário -->
+
+            <!-- Exemplo de resposta a um comentário -->
+            <div class="comment reply">
+                <img src="img/homem 3.webp" alt="User" class="avatar">
+                <div class="comment-details">
+                    <span class="user-name">Carlos Mendes</span>
+                    <button class="follow-btn" onclick="toggleFollow(this)">Seguir</button>
+                    <span class="comment-text">Alguém aí já conseguiu sacar?</span>
+                    <span class="timestamp">Há 12 minutos</span>
+                    <button class="like-btn" onclick="toggleLike(this)">Curtir</button>
+                    <span class="like-count">0</span>
+                    <button class="reply-btn" onclick="toggleReplyForm(this)">Responder</button>
+                    <form class="reply-form">
+                        <input type="text" placeholder="Digite sua resposta..." class="reply-input">
+                        <!-- Campo para digitar a resposta -->
+                        <button class="submit-reply-btn" onclick="submitReply(event, this)">Enviar</button>
+                    </form>
+                </div>
+            </div>
+            <!-- Fim do Exemplo de resposta a um comentário -->
+
+            <!-- Exemplo de resposta a um comentário -->
+            <div class="comment reply">
+                <img src="img/3.jpg" alt="User" class="avatar">
+                <div class="comment-details">
+                    <span class="user-name">Gabriel Silva</span>
+                    <button class="follow-btn" onclick="toggleFollow(this)">Seguir</button>
+                    <span class="comment-text">Euuu consegui, tava um pouco na dúvida mas consegui sacar o que perdi na
+                        Blaze e na Betano</span>
+                    <span class="timestamp">Há 9 minutos</span>
+                    <button class="like-btn" onclick="toggleLike(this)">Curtir</button>
+                    <span class="like-count">0</span>
+                    <button class="reply-btn" onclick="toggleReplyForm(this)">Responder</button>
+                    <form class="reply-form">
+                        <input type="text" placeholder="Digite sua resposta..." class="reply-input">
+                        <!-- Campo para digitar a resposta -->
+                        <button class="submit-reply-btn" onclick="submitReply(event, this)">Enviar</button>
+                    </form>
+                </div>
+            </div>
+            <!-- Fim do Exemplo de resposta a um comentário -->
+
+            <!-- Exemplo de comentário -->
+            <div class="comment">
+                <img src="img/homem" alt="User 1" class="avatar">
+                <div class="comment-details">
+                    <span class="user-name">Arthur Celestino</span>
+                    <button class="follow-btn" onclick="toggleFollow(this)">Seguir</button>
+                    <span class="comment-text">Recuperei 3 mil que tinha perdido ano passado no foguetinho, pensava que
+                        por fazer tempo nem ia dar pra recuperar mas deu certo</span>
+                    <span class="timestamp">Há 40 minutos</span>
+                    <button class="like-btn" onclick="toggleLike(this)">Curtir</button>
+                    <span class="like-count">46</span>
+                    <button class="reply-btn" onclick="toggleReplyForm(this)">Responder</button>
+                    <form class="reply-form">
+                        <input type="text" placeholder="Digite sua resposta..." class="reply-input">
+                        <!-- Campo para digitar a resposta -->
+                        <button class="submit-reply-btn" onclick="submitReply(event, this)">Enviar</button>
+                    </form>
+                </div>
+            </div>
+            <!-- Fim do exemplo de comentário -->
+
+            <!-- Exemplo de resposta a um comentário -->
+            <div class="comment reply">
+                <img src="img/homem 4.jpg" alt="User" class="avatar">
+                <div class="comment-details">
+                    <span class="user-name">Henrique Lima</span>
+                    <button class="follow-btn" onclick="toggleFollow(this)">Seguir</button>
+                    <span class="comment-text">boa irmão, ta na hora de falir todas essas casas de aposta e pegar o
+                        nosso dinheiro de volta.</span>
+                    <span class="timestamp">Há 9 minutos</span>
+                    <button class="like-btn" onclick="toggleLike(this)">Curtir</button>
+                    <span class="like-count">0</span>
+                    <button class="reply-btn" onclick="toggleReplyForm(this)">Responder</button>
+                    <form class="reply-form">
+                        <input type="text" placeholder="Digite sua resposta..." class="reply-input">
+                        <!-- Campo para digitar a resposta -->
+                        <button class="submit-reply-btn" onclick="submitReply(event, this)">Enviar</button>
+                    </form>
+                </div>
+            </div>
+            <!-- Fim do Exemplo de resposta a um comentário -->
+
+
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
